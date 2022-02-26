@@ -1,0 +1,15 @@
+.Contain{
+    width: 50% ;
+}
+.Heading{
+    color:rgb(91, 91, 224);
+    font-size:x-large;
+    font-weight: 500;
+
+}
+.dist{
+    margin-left: 1.8rem;
+}
+.textArea{
+    width: 100%;
+}
