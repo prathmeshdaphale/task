@@ -232,60 +232,6 @@ const initialState = () => {
           );
         })}
       </div>
-      {/* <input
-          type="checkbox"
-          id="When"
-          name="When"
-          value="Not relevant"
-          checked={info?.When === "Not relevant"}
-          onChange={handleChange}
-        />
-        Not Relevant <br />
-        <br />
-        <input
-          type="checkbox"
-          id="When"
-          name="When"
-          value="when lying down"
-          checked={info?.When === "when lying down"}
-          onChange={handleChange}
-        />
-        when lying down
-        <br />
-        <br />
-        <input
-          type="checkbox"
-          id="When"
-          name="When"
-          value="When sitting"
-          checked={info?.When === "When sitting"}
-          onChange={handleChange}
-        />
-        When sitting
-        <br />
-        <br />
-        <input
-          type="checkbox"
-          id="When"
-          name="When"
-          value="Under Standing"
-          checked={info?.When === "Under Standing"}
-          onChange={handleChange}
-        />
-        Under Standing
-        <br />
-        <br />
-        <input
-          type="checkbox"
-          id="When"
-          name="When"
-          value="In walking"
-          checked={info?.When === "In walking"}
-          onChange={handleChange}
-        />
-        In walking
-      </div>
-      <br /> */}
       <div onChange={handleChange}>
         <p>
           How intense is the experinse of the problem on an average on a 0-10
