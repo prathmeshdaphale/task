@@ -26,9 +26,8 @@ const initialState = () => {
       average: "",
     };
   };
-  const [info, SetInfo] = useState(initialState);
+  const [info, SetInfo] = useState([initialState]);
 
-  console.log(">>>>>>>>>>>", info);
   const handleChange = (e) => {
     SetInfo({ ...info, [e.target.name]: e.target.value });
   };
@@ -50,15 +49,17 @@ const initialState = () => {
   }, [id]);
 
   const handleCheckboxChange = (i) => {
-    const state = { ...info };
+    const state = [{ ...info }];
     state.when[i].isChecked = !state.when[i].isChecked;
-    console.log(">>>>>>>>.", state);
     SetInfo(state);
   };
   return (
     <Container className="Contain">
-      <center>
-        <h1 className="Heading">Pain & Functional Description</h1>
+     
+        {info?.map((data)=>{
+          return(<div>
+            <center>
+            <h1 className="Heading">Pain & Functional Description</h1>
       </center>
       <center>
         <p>The Description of the current situation gives your optimum</p>
@@ -69,18 +70,18 @@ const initialState = () => {
         <textarea
           className="textArea"
           onChange={handleChange}
-          value={info?.symptomList}
+          value={data?.symptomList}
           name="symptomList"
         ></textarea>
       </center>
-      <br />
-      <div onChange={handleChange} value={info?.diagnosed}>
+      <br/>
+      <div onChange={handleChange} value={data?.diagnosed}>
         <span>Have you been diagnosed with this problem?</span>
         <input
           className="radio"
           type="radio"
           value="Not relevant"
-          checked={info?.diagnosed === "Not relevant"}
+          checked={data?.diagnosed === "Not relevant"}
           name="diagnosed"
           onChange={handleChange}
         />{" "}
@@ -89,7 +90,7 @@ const initialState = () => {
           type="radio"
           value="Yes"
           name="diagnosed"
-          checked={info?.diagnosed === "Yes"}
+          checked={data?.diagnosed === "Yes"}
           onChange={handleChange}
         />{" "}
         Yes
@@ -97,7 +98,7 @@ const initialState = () => {
           type="radio"
           value="No"
           name="diagnosed"
-          checked={info?.diagnosed === "No"}
+          checked={data?.diagnosed === "No"}
           onChange={handleChange}
         />{" "}
         No
@@ -110,7 +111,7 @@ const initialState = () => {
           type="radio"
           value="Not relevant"
           name="physical"
-          checked={info?.physical === "Not relevant"}
+          checked={data?.physical === "Not relevant"}
           onChange={handleChange}
         />{" "}
         Not relevant
@@ -118,7 +119,7 @@ const initialState = () => {
           type="radio"
           value="Yes"
           name="physical"
-          checked={info?.physical === "Yes"}
+          checked={data?.physical === "Yes"}
           onChange={handleChange}
         />{" "}
         Yes
@@ -126,7 +127,7 @@ const initialState = () => {
           type="radio"
           value="No"
           name="physical"
-          checked={info?.physical === "No"}
+          checked={data?.physical === "No"}
           onChange={handleChange}
         />{" "}
         No
@@ -139,7 +140,7 @@ const initialState = () => {
           type="radio"
           value="Not relevant"
           name="mental"
-          checked={info?.mental === "Not relevant"}
+          checked={data?.mental === "Not relevant"}
           onChange={handleChange}
         />{" "}
         Not relevant
@@ -147,7 +148,7 @@ const initialState = () => {
           type="radio"
           value="Yes"
           name="mental"
-          checked={info?.mental === "Yes"}
+          checked={data?.mental === "Yes"}
           onChange={handleChange}
         />{" "}
         Yes
@@ -155,7 +156,7 @@ const initialState = () => {
           type="radio"
           value="No"
           name="mental"
-          checked={info?.mental === "No"}
+          checked={data?.mental === "No"}
           onChange={handleChange}
         />{" "}
         No
@@ -167,7 +168,7 @@ const initialState = () => {
           type="radio"
           value="Not relevant"
           name="experince"
-          checked={info?.experince === "Not relevant"}
+          checked={data?.experince === "Not relevant"}
           onChange={handleChange}
         />{" "}
         Not relevant
@@ -175,7 +176,7 @@ const initialState = () => {
           type="radio"
           value="Daily"
           name="experince"
-          checked={info?.experince === "Daily"}
+          checked={data?.experince === "Daily"}
           onChange={handleChange}
         />{" "}
         Daily
@@ -183,7 +184,7 @@ const initialState = () => {
           type="radio"
           value="week"
           name="experince"
-          checked={info?.experince === "week"}
+          checked={data?.experince === "week"}
           onChange={handleChange}
         />{" "}
         Several times /week
@@ -191,7 +192,7 @@ const initialState = () => {
           type="radio"
           value="month"
           name="experince"
-          checked={info?.experince === "month"}
+          checked={data?.experince === "month"}
           onChange={handleChange}
         />{" "}
         A few times per month
@@ -199,7 +200,7 @@ const initialState = () => {
           type="radio"
           value="year"
           name="experince"
-          checked={info?.experince === "year"}
+          checked={data?.experince === "year"}
           onChange={handleChange}
         />{" "}
         A few times/ year
@@ -208,7 +209,7 @@ const initialState = () => {
       <div>
         <p>When do you experince problem?</p>
 
-        {info.when.map((item, index) => {
+        {data?.when?.map((item, index) => {
           return (
             <div
               style={{
@@ -242,7 +243,7 @@ const initialState = () => {
           type="radio"
           value="1"
           name="average"
-          checked={info?.average === "1"}
+          checked={data?.average === "1"}
           onChange={handleChange}
         />
         1
@@ -251,7 +252,7 @@ const initialState = () => {
           type="radio"
           value="2"
           name="average"
-          checked={info?.average === "2"}
+          checked={data?.average === "2"}
           onChange={handleChange}
         />
         2
@@ -260,7 +261,7 @@ const initialState = () => {
           type="radio"
           value="3"
           name="average"
-          checked={info?.average === "3"}
+          checked={data?.average === "3"}
           onChange={handleChange}
         />
         3
@@ -269,7 +270,7 @@ const initialState = () => {
           type="radio"
           value="4"
           name="average"
-          checked={info?.average === "4"}
+          checked={data?.average === "4"}
           onChange={handleChange}
         />
         4
@@ -278,7 +279,7 @@ const initialState = () => {
           type="radio"
           value="5"
           name="average"
-          checked={info?.average === "5"}
+          checked={data?.average === "5"}
           onChange={handleChange}
         />
         5
@@ -287,7 +288,7 @@ const initialState = () => {
           type="radio"
           value="6"
           name="average"
-          checked={info?.average === "6"}
+          checked={data?.average === "6"}
           onChange={handleChange}
         />
         6
@@ -296,7 +297,7 @@ const initialState = () => {
           type="radio"
           value="7"
           name="average"
-          checked={info?.average === "7"}
+          checked={data?.average === "7"}
           onChange={handleChange}
         />
         7
@@ -305,7 +306,7 @@ const initialState = () => {
           type="radio"
           value="8"
           name="average"
-          checked={info?.average === "8"}
+          checked={data?.average === "8"}
           onChange={handleChange}
         />
         8
@@ -314,7 +315,7 @@ const initialState = () => {
           type="radio"
           value="9"
           name="average"
-          checked={info?.average === "9"}
+          checked={data?.average === "9"}
           onChange={handleChange}
         />
         9
@@ -323,11 +324,15 @@ const initialState = () => {
           type="radio"
           value="10"
           name="average"
-          checked={info?.average === "10"}
+          checked={data?.average === "10"}
           onChange={handleChange}
         />
         10
       </div>
+      </div>
+          )
+        })}
+        
       <br />
       <center>
         <div onClick={Handlesubmit}>
@@ -337,7 +342,7 @@ const initialState = () => {
 
         <div>
           <Button>Back</Button>
-          <Button onClick={() => history("/list")}>Next</Button>
+          <Button onClick={() => {SetInfo([...info,{initialState}])}}>Next</Button>
         </div>
       </center>
     </Container>
